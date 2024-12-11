@@ -11,12 +11,9 @@ function App() {
   const taskTitle = useRef();
   const [tasks, updateTasks] = useState(TASKS);
 
-  function handleAddTask(){
+  function handleAddTask(event){
+    event.preventDefault();
     const title = taskTitle.current.value;
-    if(title === ''){
-      //show some error
-      return;
-    }
 
     const newTasks = tasks.slice();
     newTasks.push(title);
@@ -27,14 +24,15 @@ function App() {
     <main>
       <section>
         <h1 className='app-title'>To Do App</h1>
-        <div className='add-task-container'>
+        <form className='add-task-container' onSubmit={handleAddTask}>
           <input 
             type='text' 
             placeholder='Task title' 
-            ref={taskTitle}
+            ref={taskTitle} 
+            required
           />
-          <button onClick={handleAddTask}>+</button>
-        </div>
+          <button type='submit'>+</button>
+        </form>
         <hr />
         {tasks.map((title) => (
           <Task key={Math.random()} title={title}/>
