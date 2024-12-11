@@ -3,13 +3,9 @@ import { useRef, useState } from 'react';
 import './App.css'
 import Task from './components/Task';
 
-const TASKS = [
-  'Just a demo task'
-]
-
 function App() {
   const taskTitle = useRef();
-  const [tasks, updateTasks] = useState(TASKS);
+  const [tasks, updateTasks] = useState([]);
 
   function handleAddTask(event){
     event.preventDefault();
@@ -18,6 +14,9 @@ function App() {
     const newTasks = tasks.slice();
     newTasks.push(title);
     updateTasks(newTasks);
+    taskTitle.current.value = '';
+
+    event.target.reset();
   }
 
   return (
