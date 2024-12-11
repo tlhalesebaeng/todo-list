@@ -8,11 +8,13 @@ main {
 }
 
 main section {
-    height: 350px;
+    min-height: 350px;
+    height: fit-content;
     width: 500px;
     background-color: white;
     border-radius: 10px;
     margin-top: 30px;
+    padding: 20px 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,4 +24,51 @@ main section {
     color: #112D4E;
     font-family: 'Arial';
     font-size: 30px;
+}
+
+.add-task-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.add-task-container input{
+    width: 250px;
+    height: 30px;
+    box-sizing: border-box;
+    border: 2px solid #DBE2EF;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding-left: 10px;
+    color: #112D4E;
+}
+
+.add-task-container input:focus {
+    outline: none;
+    border-color: #AAAAAA;
+}
+
+.add-task-container button {
+    width: 30px;
+    height: 30px;
+    margin-left: -2px;
+    box-sizing: border-box;
+    background-color: #AAAAAA;
+    color: white;
+    font-size: 20px;
+    border: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.add-task-container button:hover {
+    cursor: pointer;
+    background-color: #858585;
+}
+
+hr {
+    margin-top: 10px;
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.5);
 }
