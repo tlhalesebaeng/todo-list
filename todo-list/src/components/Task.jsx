@@ -1,4 +1,5 @@
 import './Task.css';
+import binImg from '../assets/bin.png';
 
 export default function Task({ title }) {
     return (
@@ -7,6 +8,7 @@ export default function Task({ title }) {
             <div className='task-title-container'>
                 <p className='task-title'>{title}</p>
             </div>
+            <img src={binImg} alt='delete'/>
         </div>
     );
 }
