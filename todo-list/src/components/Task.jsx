@@ -9,7 +9,7 @@ export default function Task({ task }) {
     const [completed, updateCompleted] = useState(false);
 
     return (
-        <div className='task'>
+        <li className='task'>
             <input 
                 onClick={() => 
                     updateCompleted((prevState) => (!prevState)
@@ -32,6 +32,6 @@ export default function Task({ task }) {
                     
                 }
             </div>
-        </div>
+        </li>
     );
 }

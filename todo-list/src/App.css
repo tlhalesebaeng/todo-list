@@ -28,6 +28,11 @@ main section {
     align-items: center;
 }
 
+main ul {
+    height: 100%;
+    width: 100%;
+}
+
 .app-title {
     color: #112D4E;
     font-family: 'Arial';

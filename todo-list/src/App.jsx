@@ -48,11 +48,13 @@ function App() {
           <button type='submit'>+</button>
         </form>
         <hr />
-        {tasks.map((task) => (
-          <TaskContext.Provider key={Math.random()} value={taskContext}> {/* Provide the context */}
-            <Task task={task}/>
-          </TaskContext.Provider>
-        ))}
+        <ul>
+          {tasks.map((task) => (
+            <TaskContext.Provider key={Math.random()} value={taskContext}> {/* Provide the context */}
+              <Task task={task}/>
+            </TaskContext.Provider>
+          ))}
+        </ul>
       </section>
     </main>
   );
