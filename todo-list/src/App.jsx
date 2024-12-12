@@ -2,8 +2,10 @@ import { useRef, useState } from 'react';
 
 import './App.css'
 import Task from './components/Task';
+import { TaskContext } from './store/tasks-context';
 
 function App() {
+  //Todo: Change the tasks state to an app wide state because we need it on the task component
   const taskTitle = useRef();
   const [tasks, updateTasks] = useState([]);
 
@@ -12,12 +14,26 @@ function App() {
     const title = taskTitle.current.value;
 
     const newTasks = tasks.slice();
-    newTasks.push(title);
+    const newTask = {
+      id: Math.random(),
+      title: title
+    }
+
+    newTasks.push(newTask);
     updateTasks(newTasks);
-    taskTitle.current.value = '';
 
     event.target.reset();
   }
+
+  function handleRemoveTask(id){
+    const newTasks = tasks.filter((task) => task.id !== id);
+    updateTasks(newTasks);
+  }
+
+  const taskContext = {
+    tasks: tasks,
+    removeTask: handleRemoveTask
+  };
 
   return (
     <main>
@@ -33,8 +49,10 @@ function App() {
           <button type='submit'>+</button>
         </form>
         <hr />
-        {tasks.map((title) => (
-          <Task key={Math.random()} title={title}/>
+        {tasks.map((task) => (
+          <TaskContext.Provider key={Math.random()} value={taskContext}> {/* Provide the context */}
+            <Task task={task}/>
+          </TaskContext.Provider>
         ))}
       </section>
     </main>
