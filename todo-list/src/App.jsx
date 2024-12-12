@@ -37,7 +37,7 @@ function App() {
   return (
     <main className={tasks.length < 6 ? 'vp-height' : 'normal-height'}>
       <section>
-        <h1 className='app-title'>To Do App</h1>
+        <h1 className='app-title'>To Do List</h1>
         <form className='add-task-container' onSubmit={handleAddTask}>
           <input 
             type='text' 
