@@ -18,6 +18,14 @@
     width: 15px;
 }
 
+.task-bin {
+    height: 15px;
+    min-width: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .task img:hover{
     cursor: pointer;
 }
@@ -62,4 +70,40 @@ input[type="checkbox"]:checked::after {
     font-family: 'Arial';
     font-size: 14px;
     color: #112D4E;
+}
+
+.task-title:focus {
+    background-color: white;
+    color: black;
+    outline: none;
+}
+
+@media (max-width: 650px) {
+    .task {
+        padding: 7px 7px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    input[type="checkbox"] {
+        width: 13px;
+        height: 13px; 
+    }
+
+    input[type="checkbox"]:checked::after {
+        font-size: 7px;
+    }
+
+    .task-title {
+        font-size: 12px;
+    }
+
+    .task img {
+        width: 10px;
+    }
+    
+    /* .task-bin {
+        height: 10px;
+        min-width: 10px;
+    } */
 }

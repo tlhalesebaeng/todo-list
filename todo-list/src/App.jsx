@@ -5,7 +5,6 @@ import Task from './components/Task';
 import { TaskContext } from './store/tasks-context';
 
 function App() {
-  //Todo: Change the tasks state to an app wide state because we need it on the task component
   const taskTitle = useRef();
   const [tasks, updateTasks] = useState([]);
 
@@ -36,7 +35,7 @@ function App() {
   };
 
   return (
-    <main>
+    <main className={tasks.length < 6 ? 'vp-height' : 'normal-height'}>
       <section>
         <h1 className='app-title'>To Do App</h1>
         <form className='add-task-container' onSubmit={handleAddTask}>

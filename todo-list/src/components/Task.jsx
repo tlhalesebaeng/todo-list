@@ -1,20 +1,37 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 
 import { TaskContext } from '../store/tasks-context';
 import './Task.css';
 import binImg from '../assets/bin.png';
 
 export default function Task({ task }) {
-    const { tasks, removeTask } = useContext(TaskContext); //consume the context
-    console.log(tasks);
+    const { removeTask } = useContext(TaskContext); //consume the context
+    const [completed, updateCompleted] = useState(false);
 
     return (
         <div className='task'>
-            <input className='task-checkbox' type='checkbox' />
+            <input 
+                onClick={() => 
+                    updateCompleted((prevState) => (!prevState)
+                )}
+                className='task-checkbox' 
+                type='checkbox' 
+            />
             <div className='task-title-container'>
-                <p className='task-title'>{task.title}</p>
+                <p 
+                    className='task-title' 
+                >{task.title}</p>
             </div>
-            <img onClick={() => removeTask(task.id)} src={binImg} alt='delete'/>
+            <div className='task-bin'>
+                {!completed && 
+                    <img 
+                        onClick={() => removeTask(task.id)} 
+                        src={binImg} 
+                        alt='delete'
+                    />
+                    
+                }
+            </div>
         </div>
     );
 }
