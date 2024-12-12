@@ -112,5 +112,6 @@ hr {
         width: 20px;
         height: 20px; 
         font-size: 10px;
+        margin-left: -5px;
     }
 }
