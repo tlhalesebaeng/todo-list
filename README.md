@@ -1,6 +1,6 @@
 # todo-list
 
-This [todo-list](https://tlhalefo-todo-list.netlify.app/) is a great app to add and manage daily tasks that you have to do.
+This [todo-list](https://tlhalefo-todo-list.netlify.app/) app is a great app to add and manage daily tasks that you have to do.
 
 ## Objective
 
