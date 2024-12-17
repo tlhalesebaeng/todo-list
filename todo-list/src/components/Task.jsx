@@ -11,6 +11,7 @@ export default function Task({ task }) {
     return (
         <li className='task'>
             <input 
+                title='mark as done'
                 onClick={() => 
                     updateCompleted((prevState) => (!prevState)
                 )}
@@ -25,6 +26,7 @@ export default function Task({ task }) {
             <div className='task-bin'>
                 {!completed && 
                     <img 
+                        title='delete task'
                         onClick={() => removeTask(task.id)} 
                         src={binImg} 
                         alt='delete'

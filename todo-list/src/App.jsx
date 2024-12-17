@@ -45,7 +45,7 @@ function App() {
             ref={taskTitle} 
             required
           />
-          <button type='submit'>+</button>
+          <button title='add new task' type='submit'>+</button>
         </form>
         <hr />
         <ul>
