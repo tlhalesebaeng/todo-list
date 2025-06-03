@@ -9,30 +9,26 @@ export default function Task({ task }) {
     const [completed, updateCompleted] = useState(false);
 
     return (
-        <li className='task'>
-            <input 
-                title='mark as done'
-                onClick={() => 
-                    updateCompleted((prevState) => (!prevState)
-                )}
-                className='task-checkbox' 
-                type='checkbox' 
+        <li className="task">
+            <input
+                title="mark as done"
+                onClick={() => updateCompleted((prevState) => !prevState)}
+                className="task-checkbox"
+                type="checkbox"
+                aria-label="task-checkbox"
             />
-            <div className='task-title-container'>
-                <p 
-                    className='task-title' 
-                >{task.title}</p>
+            <div className="task-title-container">
+                <p className="task-title">{task.title}</p>
             </div>
-            <div className='task-bin'>
-                {!completed && 
-                    <img 
-                        title='delete task'
-                        onClick={() => removeTask(task.id)} 
-                        src={binImg} 
-                        alt='delete'
+            <div className="task-bin">
+                {!completed && (
+                    <img
+                        title="delete task"
+                        onClick={() => removeTask(task.id)}
+                        src={binImg}
+                        alt="delete"
                     />
-                    
-                }
+                )}
             </div>
         </li>
     );
