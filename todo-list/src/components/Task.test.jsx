@@ -45,20 +45,15 @@ describe('Task', () => {
         expect(imageElement).toBeNull();
     });
 
-    it('adds the delete img on checkbox second click', async () => {
+    it('adds the delete img on checkbox double click', async () => {
         render(<Task task={{}} />);
 
         const checkBoxElement = screen.getByRole('checkbox', {
             name: 'task-checkbox',
         });
 
-        // hide the delete image
-        await userEvent.click(checkBoxElement);
-        const hiddenImage = screen.queryByRole('img', { name: 'delete' });
-        expect(hiddenImage).toBeNull();
-
         // show the delete image
-        await userEvent.click(checkBoxElement);
+        await userEvent.dblClick(checkBoxElement);
         const shownImage = screen.getByRole('img', { name: 'delete' });
         expect(shownImage).toBeInTheDocument();
     });
