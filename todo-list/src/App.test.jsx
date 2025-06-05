@@ -44,5 +44,8 @@ describe('App', () => {
 
         // check if a task with the filled with test name is in the document
         expect(taskElement).toBeInTheDocument();
+
+        // (extra) check if the input field was cleared
+        expect(titleInputElement.value).toBe('');
     });
 });

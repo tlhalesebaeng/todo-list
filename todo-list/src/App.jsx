@@ -1,4 +1,4 @@
-import { useContext, useRef, useState } from 'react';
+import { useContext, useRef } from 'react';
 
 import './App.css';
 import Task from './components/Task';
@@ -11,6 +11,7 @@ function App() {
     const handleAddTask = (event) => {
         event.preventDefault();
         addTask(taskTitle.current.value);
+        taskTitle.current.value = ''; // not declarative
     };
 
     return (
