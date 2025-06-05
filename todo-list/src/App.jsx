@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 
 import './App.css';
 import Task from './components/Task';
@@ -6,32 +6,11 @@ import { TaskContext } from './store/tasks-context';
 
 function App() {
     const taskTitle = useRef();
-    const [tasks, updateTasks] = useState([]);
+    const { tasks, addTask } = useContext(TaskContext);
 
-    function handleAddTask(event) {
+    const handleAddTask = (event) => {
         event.preventDefault();
-        const title = taskTitle.current.value;
-
-        const newTasks = tasks.slice();
-        const newTask = {
-            id: Math.random(),
-            title: title,
-        };
-
-        newTasks.push(newTask);
-        updateTasks(newTasks);
-
-        event.target.reset();
-    }
-
-    function handleRemoveTask(id) {
-        const newTasks = tasks.filter((task) => task.id !== id);
-        updateTasks(newTasks);
-    }
-
-    const taskContext = {
-        tasks: tasks,
-        removeTask: handleRemoveTask,
+        addTask(taskTitle.current.value);
     };
 
     return (
@@ -52,12 +31,7 @@ function App() {
                 <hr />
                 <ul>
                     {tasks.map((task) => (
-                        <TaskContext.Provider
-                            key={Math.random()}
-                            value={taskContext}
-                        >
-                            <Task task={task} />
-                        </TaskContext.Provider>
+                        <Task key={task.id} task={task} />
                     ))}
                 </ul>
             </section>

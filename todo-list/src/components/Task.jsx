@@ -5,7 +5,7 @@ import './Task.css';
 import binImg from '../assets/bin.png';
 
 export default function Task({ task }) {
-    const { removeTask } = useContext(TaskContext); //consume the context
+    const { removeTask } = useContext(TaskContext);
     const [completed, updateCompleted] = useState(false);
 
     return (
